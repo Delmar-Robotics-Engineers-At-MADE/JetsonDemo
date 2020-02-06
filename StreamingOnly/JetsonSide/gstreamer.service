@@ -1,0 +1,12 @@
+[Unit]
+Description=GStreamer video stream
+
+[Service]
+Type=simple
+User=ubuntu
+#ExecStart=/bin/bash /home/ubuntu/JetsonDemo/StreamingOnly/JetsonSide/gstreamer_server.sh `ls /dev/video* | sed 's/\/dev\/video//g'` 10.99.88.99 5805
+ExecStart=/bin/bash /home/ubuntu/JetsonDemo/StreamingOnly/JetsonSide/gstreamer_server.sh 0 10.99.88.99 5805
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
